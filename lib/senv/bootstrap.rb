@@ -3,13 +3,13 @@ module SENV
     # Autoloads
     #
     autoload :Checker , "senv/bootstrap/checker"
-    autoload :Proto   , "senv/bootstrap/proto"
     autoload :Runner  , "senv/bootstrap/runner"
+    autoload :Shared  , "senv/bootstrap/shared"
 
     # Constants
     #
     DEFAULTS = Map.new \
       :location  => "~",
-      :senv_path => ".senv"
+      :senv_dir  => ".senv"
   end
 end

@@ -1,6 +1,8 @@
 module SENV
   module Bootstrap
-    class Checker < Proto
+    class Checker
+      include Shared
+
       def self.check( *args )
         checker = new *args
         checker.check
@@ -17,7 +19,7 @@ module SENV
       end
 
       def senv_path_exists?
-        File.directory? senv_location
+        File.directory? senv_path
       end
     end
   end
