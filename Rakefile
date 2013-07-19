@@ -8,11 +8,21 @@ end
 
 namespace :test do
   desc 'Run ALL The Tests'
-  task :all => [ 'test:acceptance' ]
+  task :all => [
+                 'test:acceptance',
+                 'test:spec'
+               ]
 
   desc 'Run The Acceptance Tests'
   Cucumber::Rake::Task.new :acceptance do | t |
     t.cucumber_opts = %w{--format progress}
+  end
+
+  desc 'Run The Functional Tests'
+  Rake::TestTask.new( :spec ) do | t |
+    t.libs << [ 'test' ]
+    t.pattern = 'test/spec/**/*_spec.rb'
+    t.verbose = true
   end
 end
 
